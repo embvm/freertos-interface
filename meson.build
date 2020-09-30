@@ -1,4 +1,4 @@
-project('PROJECT_NAME',
+project('freertos-interface',
 	['c', 'cpp'],
 	default_options : [
 		'warning_level=3',
@@ -11,7 +11,7 @@ project('PROJECT_NAME',
 		'c_std=c11', 'build.c_std=c11',
 		'cpp_std=c++17', 'build.cpp_std=c++17',
 	],
-	meson_version: '>=0.54.0',
+	meson_version: '>=0.55.0',
 	version: '0.1'
 )
 
@@ -88,7 +88,13 @@ subdir('build/objcopy')
 # Subprojects #
 ###############
 
-
+freertos_kernel_subproject = subproject('freertos-kernel')
+freertos_kernel_dep = freertos_kernel_subproject.get_variable('freertos_kernel_dep')
+freertos_heap1_dep = freertos_kernel_subproject.get_variable('freertos_heap1_dep')
+freertos_heap2_dep = freertos_kernel_subproject.get_variable('freertos_heap2_dep')
+freertos_heap3_dep = freertos_kernel_subproject.get_variable('freertos_heap3_dep')
+freertos_heap4_dep = freertos_kernel_subproject.get_variable('freertos_heap4_dep')
+freertos_heap5_dep = freertos_kernel_subproject.get_variable('freertos_heap5_dep')
 
 #######################
 # Process Source Tree #
