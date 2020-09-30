@@ -19,7 +19,6 @@ freertos_embvm_dep = declare_dependency(
 	),
 	dependencies: [
 		freertos_kernel_dep,
-		freertos_heap3_dep
 	]
 )
 
