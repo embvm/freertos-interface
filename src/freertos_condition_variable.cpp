@@ -21,7 +21,7 @@ bool ConditionVariable::freertos_wait(embvm::VirtualMutex* mutex, uint32_t ticks
 
 	// Tell FreeRTOS to sleep this thread until a notification occurs
 	mutex->unlock();
-	auto r = ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+	auto r = ulTaskNotifyTake(pdTRUE, ticks_timeout);
 	mutex->lock();
 
 	return r > 0; // 0 indicates we had no notifications

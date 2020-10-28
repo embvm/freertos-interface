@@ -15,7 +15,8 @@ inline uint32_t frameworkTimeoutToTicks(const embvm::os_timeout_t& timeout) noex
 	else
 	{
 		// TODO: actual conversion to ticks... this is fake millisecond conversion
-		return std::chrono::duration_cast<std::chrono::milliseconds>(timeout).count();
+		return static_cast<uint32_t>(
+			std::chrono::duration_cast<std::chrono::milliseconds>(timeout).count());
 	}
 }
 

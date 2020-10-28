@@ -54,14 +54,14 @@ int std::__libcpp_thread_create(std::__libcpp_thread_t* __t, void* (*__func)(voi
 
 bool std::__libcpp_thread_isnull(const std::__libcpp_thread_t* __t)
 {
-	return *__t == 0;
+	return *__t == nullptr;
 }
 
 int std::__libcpp_thread_destroy(std::__libcpp_thread_t* __t)
 {
 	if(__t && *__t)
 	{
-		os::Factory::destroy(const_cast<std::__libcpp_thread_t>(*__t));
+		os::Factory::destroy(*__t);
 		*__t = nullptr;
 	}
 
@@ -119,7 +119,7 @@ int std::__libcpp_tls_create(std::__libcpp_tls_key* __key,
 void* std::__libcpp_tls_get(std::__libcpp_tls_key __key)
 {
 	(void)__key;
-	return reinterpret_cast<void*>(pvTaskGetThreadLocalStoragePointer(NULL, 0));
+	return pvTaskGetThreadLocalStoragePointer(nullptr, 0);
 }
 
 // Only one value is supported: 0, so key is ignored
@@ -127,7 +127,7 @@ void* std::__libcpp_tls_get(std::__libcpp_tls_key __key)
 int std::__libcpp_tls_set(std::__libcpp_tls_key __key, void* __p)
 {
 	(void)__key;
-	vTaskSetThreadLocalStoragePointer(NULL, 0, __p);
+	vTaskSetThreadLocalStoragePointer(nullptr, 0, __p);
 	return 0;
 }
 
@@ -136,6 +136,8 @@ int std::__libcpp_tls_set(std::__libcpp_tls_key __key, void* __p)
 // Execute once
 int std::__libcpp_execute_once(std::__libcpp_exec_once_flag* flag, void (*init_routine)(void))
 {
+	(void)flag;
+	(void)init_routine;
 	// return pthread_once(flag, init_routine);
 	return -1;
 }

@@ -3,7 +3,6 @@
 #include <FreeRTOS.h>
 #include <etl/pool.h>
 #include <task.h>
-// TODO: #include <platform_os_settings.hpp>
 
 // TODO: Size 0 should enable new/delete and ETL types should not be declared.
 
@@ -44,8 +43,10 @@ etl::pool<EventFlag, OS_EVENT_FLAG_POOL_SIZE> event_factory_;
 
 #pragma mark - FreeRTOS Handlers -
 
-extern "C" void vApplicationStackOverflowHook(TaskHandle_t xTask, signed char* pcTaskName)
+extern "C" void vApplicationStackOverflowHook(TaskHandle_t xTask, char* pcTaskName)
 {
+	(void) xTask;
+	(void) pcTaskName;
 	// TODO: assert(0), or print out register info
 	while(1)
 		;
