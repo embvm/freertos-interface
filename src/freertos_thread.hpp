@@ -1,3 +1,6 @@
+// Copyright 2020 Embedded Artistry LLC
+// SPDX-License-Identifier: MIT
+
 #ifndef FREERTOS_THREAD_HPP_
 #define FREERTOS_THREAD_HPP_
 

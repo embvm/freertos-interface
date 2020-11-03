@@ -1,3 +1,6 @@
+// Copyright 2020 Embedded Artistry LLC
+// SPDX-License-Identifier: MIT
+
 #include "freertos_semaphore.hpp"
 #include "FreeRTOS.h"
 #include "semphr.h"

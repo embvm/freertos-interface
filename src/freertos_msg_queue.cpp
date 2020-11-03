@@ -1,3 +1,6 @@
+// Copyright 2020 Embedded Artistry LLC
+// SPDX-License-Identifier: MIT
+
 #include "freertos_msg_queue.hpp"
 #include <FreeRTOS.h>
 #include <queue.h>

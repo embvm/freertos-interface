@@ -1,3 +1,6 @@
+// Copyright 2020 Embedded Artistry LLC
+// SPDX-License-Identifier: MIT
+
 #include <FreeRTOS.h>
 #include <__external_threading>
 #include <errno.h>

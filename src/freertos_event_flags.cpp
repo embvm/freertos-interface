@@ -1,3 +1,6 @@
+// Copyright 2020 Embedded Artistry LLC
+// SPDX-License-Identifier: MIT
+
 #include "freertos_event_flags.hpp"
 #include "freertos_os_helpers.hpp"
 #include <FreeRTOS.h>
